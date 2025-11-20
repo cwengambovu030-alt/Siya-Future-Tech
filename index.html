@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"
+</head>
+<body>
+
+<section id="carousel" style="text-align: center; margin: 40px 0;">
+  <h2>Explore Our Training Environment</h2>
+  <div class="slideshow-wrapper">
+    <div class="slideshow-container">
+      <img id="slide" src="training1.jpg" alt="IT Training Slide" />
+    </div>
+  </div>
+</section>
+
+</style>
+</head>
+<script>
+  const images = ["IT PICTURE 3.jpg", "IT PICTURE 2.jpg", "IT PICTURE 4.jpg"];
+  let index = 0;
+  const slide = document.getElementById("slide");
+
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    slide.src = images[index];
+  }, 4000); // Change every 4 seconds
+</script>
+
+<body>
+  <header>
+    <h1>Future Tech IT Training</h1>
+    <p>Empowering Your Digital Future</p>
+  </header>
+
+ <section id="training-video" style="text-align: center; margin: 40px 0;">
+  <h2>Training Introduction Video</h2>
+  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+    <iframe 
+      src="https://www.youtube.com/embed/QyhwSYhX09s" 
+      title="Future Tech Training Intro" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen 
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+    </iframe>
+  </div>
+</section>
+
+  <nav>
+    <ul>
+      <li><a href="#purpose">Purpose</a></li>
+      <li><a href="#benefits">Benefits</a></li>
+      <li><a href="#payments">Payments</a></li>
+      <li><a href="#audience">Audience</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#legal">Legal</a></li>
+    </ul>
+  </nav>
+
+  <section id="purpose">
+    <h2>Purpose</h2>
+    <p>Future Tech provides world-class IT training and certification programs to help individuals and organizations thrive in the digital age.</p>
+  </section>
+
+ <section id="benefits">
+    <h2>Benefits</h2>
+    <ul>
+      <li>Vendor-authorized training (Microsoft, Cisco, AWS, CompTIA)</li>
+      <li>Flexible learning formats: online, hybrid, in-person</li>
+      <li>Certification exam preparation and career support</li>
+      <li>Access to expert instructors and modern labs</li>
+    </ul>
+  </section>
+
+  <section id="payments">
+    <h2>Payments</h2>
+    <p>We accept secure online payments via EFT, credit card, and PayFast. Installment plans and corporate invoicing are available.</p>
+  </section>
+
+  <section id="audience">
+    <h2>Target Audience</h2>
+    <p>Our programs are designed for students, professionals, corporate teams, and government organizations seeking IT enablement.</p>
+  </section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" /><br />
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" /><br />
+      <label for="message">Message:</label><br />
+      <textarea id="message" name="message" rows="4"></textarea><br />
+      <input type="submit" value="Send Message" />
+    </form>
+  </section>
+
+  <section id="legal">
+    <h2>Rules & Regulations</h2>
+    <ul>
+      <li>All course participants must adhere to Future Tech’s code of conduct and attendance policies.</li>
+      <li>Course fees must be paid in full before access to training materials is granted.</li>
+      <li>Certification exams are governed by the respective vendor’s terms and conditions.</li>
+      <li>Future Tech reserves the right to reschedule or cancel classes with prior notice.</li>
+      <li>Unauthorized sharing of course materials is strictly prohibited.</li>
+    </ul>
+
+<h2>Legal Disclaimer</h2>
+    <p>Future Tech provides training services based on vendor-authorized content. While we strive for accuracy, we do not guarantee certification outcomes or job placement. All information on this website is provided “as is” without warranty of any kind.</p>
+
+    <h2>Copyright Notice</h2>
+    <p>&copy; 2025 Future Tech IT Training. All content, including text, images, logos, and course materials, is protected under South African copyright law. Unauthorized reproduction or distribution is prohibited.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Future Tech IT Training. All rights reserved.</p>
+  </footer>
+
+  <!-- AI Assistant Chat Widget -->
+  <div id="chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 300px; background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
+    <div style="background-color: #0055a5; color: white; padding: 10px; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+      <strong>FutureBot</strong> – AI Assistant
+    </div>
+    <div id="chatlog" style="height: 200px; overflow-y: auto; padding: 10px; font-size: 14px;"></div>
+    <input type="text" id="userInput" placeholder="Ask me anything..." style="width: 100%; border: none; border-top: 1px solid #ccc; padding: 10px; box-sizing: border-box;" />
+  </div>
+
+  <script>
+    const chatlog = document.getElementById('chatlog');
+    const userInput = document.getElementById('userInput');
+
+
+userInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        const userText = userInput.value.trim();
+        if (userText) {
+          chatlog.innerHTML += `<div><strong>You:</strong> ${userText}</div>`;
+          respondToUser(userText);
+          userInput.value = '';
+          chatlog.scrollTop = chatlog.scrollHeight;
+        }
+      }
+    });
+
+    function respondToUser(input) {
+      let response = "I'm here to help! Please ask about our courses, payments, or contact info.";
+      if (input.toLowerCase().includes("course")) {
+        response = "We offer Microsoft, Cisco, AWS, and CompTIA training. Would you like a full list?";
+      } else if (input.toLowerCase().includes("payment")) {
+        response = "You can pay via EFT, credit card, or PayFast. Installments are available too.";
+      } else if (input.toLowerCase().includes("contact")) {
+        response = "You can reach us via the contact form or email us at info@futuretech.co.za.";
+      } else if (input.toLowerCase().includes("location")) {
+        response = "We are based in Rustenburg, North-West, South Africa.";
+      }
+      chatlog.innerHTML += `<div><strong>FutureBot:</strong> ${response}</div>`;
+    }
+
+ </script>
+</body>
+</html>
